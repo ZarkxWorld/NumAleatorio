@@ -1,0 +1,74 @@
+html {
+    background: url(images/giphy.gif) no-repeat center center fixed;
+        background-size: cover;
+        -moz-background-size: cover;
+        -webkit-background-size: cover;
+        -o-background-size: cover;
+}
+h4 {
+    text-align: center;
+}
+h2 {
+    text-align: center;
+}
+h3 {
+    text-align: center;
+    color: chartreuse;
+}
+
+	.luz.on{
+  color: #0099ff;/*color del texto al cambiar*/
+  text-shadow:
+     1px  1px rgba(255, 255, 255, .1),
+    -1px -1px rgba(0, 0, 0, .88),
+     0px  0px 20px #0099ff;/*color de la luz del texto*/
+}
+.luz{
+  font-size:60px;/*tamaño de la fuente*/
+  color: #000000;
+  text-shadow:
+     1px  1px rgba(255, 255, 255, .1),
+    -1px -1px rgba(0, 0, 0, .88);
+}
+.neon { 
+font-size: 40px; 
+letter-spacing:-2px; 
+color: #CEF6F5; 
+text-shadow: 0 0 5px #CEF6F5, 0 0 10px #CEF6F5, 0 0 15px #CEF6F5, 0 0 20px #CEF6F5, 0 0 25px #CEF6F5; 
+-webkit-text-fill-color: #013ADF; 
+-webkit-text-stroke-color:#81F7F3; 
+-webkit-text-stroke-width:0.2px; 
+-moz-text-fill-color: #013ADF; 
+-moz-text-stroke-color:#81F7F3; 
+-moz-text-stroke-width:0.2px; 
+} 
+
+.neonP { 
+font-size: 30px; 
+letter-spacing:-2px; 
+color: #CEF6F5; 
+text-shadow: 0 0 5px #CEF6F5, 0 0 10px #CEF6F5, 0 0 15px #CEF6F5, 0 0 20px #CEF6F5, 0 0 25px #CEF6F5; 
+-webkit-text-fill-color: #FF00FF; 
+-webkit-text-stroke-color:#F781F3; 
+-webkit-text-stroke-width:0.2px; 
+-moz-text-fill-color: #FF00FF; 
+-moz-text-stroke-color:#F781F3; 
+-moz-text-stroke-width:0.2px; 
+} 
+
+.redondeado {
+            border-radius: 10px;
+            background-color: aquamarine;
+           
+        }
+form {
+    text-align: center;
+}
+
+p {
+    text-align: center;
+}
+img {
+    display:block;
+margin:auto;
+}
