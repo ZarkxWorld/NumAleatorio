@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="utf-8">
+    <title>Números Aleatorios</title>
+    <link rel="stylesheet" type="text/css" href="estilo.css"> <!-- convoca hoja de estilos-->
+    
+    <script>
+        // variables
+        var minimo;
+        var maximo;
+        var resultado;
+
+        function validar() {
+	       var error;  //Variable local
+
+            if (isNaN(minimo) || isNaN(maximo)){
+                document.getElementById("error").innerHTML ="Error, introduzca un número";//especifica que se poga un número
+                document.getElementById("resultado").innerHTML = "";
+                error=true;
+            }
+            else{
+                if (minimo >=maximo) {
+                    document.getElementById("error").innerHTML ="EL VALOR MÍNIMO DEBE SER MAYOR QUE EL MÁXIMO";//especifica que el máximo debe ser mayor que el minimo
+                    document.getElementById("resultado").innerHTML = "";
+                    error=true;
+                } else { //funciona correcto
+                    error = false;
+                }//funciona mal
+                return error;   
+            }
+        }
+
+        function aleatorio(a,b) { //genera un numero aleatorio
+            return Math.round(Math.random()*(b-a)+parseInt(a));
+        }
+
+        function calc_aleat(){ //calcula entre el minimo y el maximo
+		//Number convierte carácter a número
+            minimo = Number(document.f1.minim.value); 
+            maximo = Number(document.f1.maxim.value);
+            resultado = aleatorio(minimo,maximo);
+		
+            if (!validar()){
+                document.f1.res.value = resultado;
+                document.getElementById("resultado").innerHTML = resultado.toString();
+                document.getElementById("error").innerHTML="";
+                imgage(); //muestra imagen 
+            }
+            else document.f1.res.value = "error"; //devuelve error si es erróneo
+        }
+
+        function imgage (){
+        //si se borra imagen de la segunda cifra
+            document.getElementById('image2').src = "#"; 
+
+            if (resultado == 0) {
+                document.getElementById('image1').src = "images/0.gif"; //ruta de las imagenes
+            }
+
+            else if (resultado == 1){
+                document.getElementById('image1').src = "images/1.gif";
+            } else if (resultado == 2){
+                document.getElementById('image1').src = "images/2.gif";
+            }else if (resultado == 3){
+                document.getElementById('image1').src = "images/3.gif";
+            }else if (resultado == 4){
+                document.getElementById('image1').src = "images/4.gif";
+            }else if (resultado == 5){
+                document.getElementById('image1').src = "images/5.gif";
+            }else if (resultado == 6){
+                document.getElementById('image1').src = "images/6.gif";
+            }else if (resultado == 7){
+                document.getElementById('image1').src = "images/7.gif";
+            }else if (resultado == 8){
+                document.getElementById('image1').src = "images/8.gif";
+            }else if (resultado == 9){
+                document.getElementById('image1').src = "images/9.gif";
+            }else if (resultado == 10){
+                document.getElementById('image1').src = "images/uno.gif";
+                document.getElementById('image2').src = "images/cero.gif";
+            }else {
+                document.getElementById('image1').src = "images/nums.png";
+            }	//devuelven los resultados mediante imágenes
+            console.log(resultado);
+            var mensaje1;
+            mensaje1 = new SpeechSynthesisUtterance(resultado);
+            window.speechSynthesis.speak(mensaje1); //realiza un speak del resultado
+        }
+        
+        (function() {//crea un intervalo de encendido y apagado en conjunto con el css
+
+setInterval(function(){
+  var el = document.getElementById('blink');
+  if(el.className == 'luz'){
+      el.className = 'luz on';
+  }else{
+      el.className = 'luz';
+  }
+},500);
+
+})();
+	</script>
+</head>
+
+<body>
+    <div class="container">
+        <h2><img src="images/textoh2.png"></h2>
+<h3 class="luz" id="blink"><b>Selecciona el valor mínimo y máximo</b></h3>
+<p class="neonP" id="resultado"></p>
+<p class="neonP" id="error"></p> 
+
+</div> 
+
+<form name="f1"  >
+    <h4 class="neon">Ingrese el número mínimo: <input class="redondeado" type="number" max="999999" min="0" name="minim" /></h4>
+    <h4 class="neon">Ingrese el número máximo: <input class="redondeado" type="number" max="999999" min="0" name="maxim" /></h4>
+<BR/>
+    <img src="images/calcula.png" id='image_input' onclick="calc_aleat()"/> <!--utilizo una imagen como botón-->
+    <h4 class="neon">Resultado: <textarea class="redondeado" maxLength="5" size="5" name="res"></textarea></h4>
+
+    </form>
+<BR/>
+<!-- aquí se mostrarán las imágenes .-->
+<img id="image1" src="images/espera.png" alt="image">
+<img id="image2" src="#" alt="">
+</body>
+    
+</html>
